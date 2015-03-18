@@ -6,12 +6,12 @@
 (def connection (atom nil))
 
 (defn- conn [host port]
-  (java.net.Socket. host port))
+  (java.net.Socket. host ^:Integer port))
 
 (defn connect!
   "Connect to a PossibleDB server"
   [host port]
-  (reset! reload-conn [host port])
+  (reset! reload-conn [host ^:Integer port])
   (reset! connection
           (conn host port)))
 
